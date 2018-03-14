@@ -1,0 +1,18 @@
+﻿<Properties StartupConfiguration="{1ABB7DE6-54F7-44CD-AC93-44B8849FDA2E}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DealNotifier.cs">
+    <Files>
+      <File FileName="SlickDealsNotifierContext.cs" Line="12" Column="39" />
+      <File FileName="Deal.cs" Line="6" Column="39" />
+      <File FileName="Program.cs" Line="32" Column="29" />
+      <File FileName="IDealNotifier.cs" Line="4" Column="25" />
+      <File FileName="DealNotifier.cs" Line="4" Column="34" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.SlickDealsNotifier PreferredExecutionTarget="MonoDevelop.Default" />
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -7,9 +7,10 @@ namespace SlickDealsNotifier
     {
         public Deal Parse(IWebElement containerElement)
         {
-            var title = containerElement
-                .FindElement(By.ClassName("itemTitle"))
-                .Text;
+            var titleElement = containerElement
+                .FindElement(By.ClassName("itemTitle"));
+            
+            var title = titleElement.Text;
             var price = containerElement
                 .FindElement(By.ClassName("itemPrice"))
                 .Text;
@@ -25,14 +26,18 @@ namespace SlickDealsNotifier
                 .FindElements(By.CssSelector("fire.icon.icon-fire"))
                 .Count > 0;
 
+            var url = titleElement.GetAttribute("href");
+
             return new Deal
             {
                 Title = title,
                 Price = price,
                 Store = store,
                 Votes = votes,
-                IsFire = isFire
+                IsFire = isFire,
+                Url = url
             };
+
         }
     }
 }

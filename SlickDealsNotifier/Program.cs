@@ -11,6 +11,7 @@ namespace SlickDealsNotifier
         {
             Console.WriteLine("Slick Deals Notifier started...");
             var dealParser = new WebElementDealParser();
+            var dealNotifier = new DealNotifier();
 
             using (var driver = new FirefoxDriver())
             {
@@ -19,14 +20,21 @@ namespace SlickDealsNotifier
 
                 var dealsWithMoreThan100Votes = deals
                     .Where(d => d.Votes >= 100);
-                
-                foreach(var deal in dealsWithMoreThan100Votes)
+
+                using (var db = new SlickDealsNotifierContext())
                 {
-                    Console.WriteLine($"Deal found." +
-                                      $"Title: {deal.Title}" +
-                                      $"Store: {deal.Store}" +
-                                      $"Votes: {deal.Votes}");
+                    foreach(var deal in dealsWithMoreThan100Votes)
+                    {
+                        var alreadyNotified = db.Deals.FirstOrDefault(d =>
+                                                            d.Url == deal.Url);
+
+                        if(!alreadyNotified)
+                        {
+                            dealNotifier.Notify(deal);
+                        }
+                    }
                 }
+
             }
         }
     }
