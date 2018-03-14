@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Threading.Tasks;
+
 namespace SlickDealsNotifier
 {
     public interface IDealNotifier
     {
-        void Notify(Deal deal);
+        Task NotifyAsync(Deal deal);
     }
 }

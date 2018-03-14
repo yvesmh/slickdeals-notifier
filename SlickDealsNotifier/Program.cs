@@ -25,12 +25,12 @@ namespace SlickDealsNotifier
                 {
                     foreach(var deal in dealsWithMoreThan100Votes)
                     {
-                        var alreadyNotified = db.Deals.FirstOrDefault(d =>
+                        var alreadyNotified = db.Deals.Any(d =>
                                                             d.Url == deal.Url);
 
                         if(!alreadyNotified)
                         {
-                            dealNotifier.Notify(deal);
+                            dealNotifier.NotifyAsync(deal);
                         }
                     }
                 }
